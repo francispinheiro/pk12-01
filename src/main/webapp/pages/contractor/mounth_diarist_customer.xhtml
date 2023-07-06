@@ -1,0 +1,464 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:adm="http://efransys.com.br/adminfaces">
+
+	<h:form id="formMounthCalendar"
+		onkeypress="if (event.keyCode == 13) { return false; }"
+		enctype="multipart/form-data">
+
+		<p:scrollPanel rendered="true">
+
+			<div class="ui-fluid">
+
+				<table>
+					<thead>
+						<tr>
+							<th style="padding-right: 15px">Mês</th>
+
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw1}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw2}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw3}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw4}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw5}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw6}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw7}" /></th>
+
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw8}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw9}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw10}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw11}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw12}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw13}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw14}" /></th>
+
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw15}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw16}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw17}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw18}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw19}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw20}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw21}" /></th>
+
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw22}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw23}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw24}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw25}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw26}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw27}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw28}" /></th>
+
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw29}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw30}" /></th>
+							<th style="padding-right: 7px"><p:outputLabel
+									value="#{cDiaristMB.dw31}" /></th>
+
+						</tr>
+
+						<tr>
+							<th style="padding-right: 20px"><p:outputLabel
+									value="#{cDiaristMB.mounthSchedule}" /></th>
+
+							<th style="padding-right: 7px"><p:commandLink id="cl1"
+									value="#{cDiaristMB.dm1}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm1)}"
+									disabled="#{cDiaristMB.bd1 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd1 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl2"
+									value="#{cDiaristMB.dm2}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm2)}"
+									disabled="#{cDiaristMB.bd2 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd2 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl3"
+									value="#{cDiaristMB.dm3}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm3)}"
+									disabled="#{cDiaristMB.bd3 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd3 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl4"
+									value="#{cDiaristMB.dm4}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm4)}"
+									disabled="#{cDiaristMB.bd4 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd4 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl5"
+									value="#{cDiaristMB.dm5}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm5)}"
+									disabled="#{cDiaristMB.bd5 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd5 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl6"
+									value="#{cDiaristMB.dm6}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm6)}"
+									disabled="#{cDiaristMB.bd6 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd6 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl7"
+									value="#{cDiaristMB.dm7}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm7)}"
+									disabled="#{cDiaristMB.bd7 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd7 == true ? 'color_schedule' : 'none'}" /></th>
+
+							<th style="padding-right: 7px"><p:commandLink id="cl8"
+									value="#{cDiaristMB.dm8}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm8)}"
+									disabled="#{cDiaristMB.bd8 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd8 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl9"
+									value="#{cDiaristMB.dm9}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm9)}"
+									disabled="#{cDiaristMB.bd9 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd9 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl10"
+									value="#{cDiaristMB.dm10}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm10)}"
+									disabled="#{cDiaristMB.bd10 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd10 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl11"
+									value="#{cDiaristMB.dm11}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm11)}"
+									disabled="#{cDiaristMB.bd11 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd11 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl12"
+									value="#{cDiaristMB.dm12}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm12)}"
+									disabled="#{cDiaristMB.bd12 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd12 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl13"
+									value="#{cDiaristMB.dm13}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm13)}"
+									disabled="#{cDiaristMB.bd13 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd13 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl14"
+									value="#{cDiaristMB.dm14}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm14)}"
+									disabled="#{cDiaristMB.bd14 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd14 == true ? 'color_schedule' : 'none'}" /></th>
+
+							<th style="padding-right: 7px"><p:commandLink id="cl15"
+									value="#{cDiaristMB.dm15}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm15)}"
+									disabled="#{cDiaristMB.bd15 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd15 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl16"
+									value="#{cDiaristMB.dm16}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm16)}"
+									disabled="#{cDiaristMB.bd16 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd16 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl17"
+									value="#{cDiaristMB.dm17}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm17)}"
+									disabled="#{cDiaristMB.bd17 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd17 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl18"
+									value="#{cDiaristMB.dm18}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm18)}"
+									disabled="#{cDiaristMB.bd18 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd18 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl19"
+									value="#{cDiaristMB.dm19}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm19)}"
+									disabled="#{cDiaristMB.bd19 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd19 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl20"
+									value="#{cDiaristMB.dm20}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm20)}"
+									disabled="#{cDiaristMB.bd20 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd20 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl21"
+									value="#{cDiaristMB.dm21}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm21)}"
+									disabled="#{cDiaristMB.bd21 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd21 == true ? 'color_schedule' : 'none'}" /></th>
+
+							<th style="padding-right: 7px"><p:commandLink id="cl22"
+									value="#{cDiaristMB.dm22}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm22)}"
+									disabled="#{cDiaristMB.bd22 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd22 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl23"
+									value="#{cDiaristMB.dm23}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm23)}"
+									disabled="#{cDiaristMB.bd23 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd23 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl24"
+									value="#{cDiaristMB.dm24}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm24)}"
+									disabled="#{cDiaristMB.bd24 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd24 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl25"
+									value="#{cDiaristMB.dm25}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm25)}"
+									disabled="#{cDiaristMB.bd25 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd25 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl26"
+									value="#{cDiaristMB.dm26}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm26)}"
+									disabled="#{cDiaristMB.bd26 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd26 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl27"
+									value="#{cDiaristMB.dm27}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm27)}"
+									disabled="#{cDiaristMB.bd27 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd27 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl28"
+									value="#{cDiaristMB.dm28}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm28)}"
+									disabled="#{cDiaristMB.bd28 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd28 == true ? 'color_schedule' : 'none'}" /></th>
+
+							<th style="padding-right: 7px"><p:commandLink id="cl29"
+									value="#{cDiaristMB.dm29}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm29)}"
+									disabled="#{cDiaristMB.bd29 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd29 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl30"
+									value="#{cDiaristMB.dm30}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm30)}"
+									disabled="#{cDiaristMB.bd30 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd30 == true ? 'color_schedule' : 'none'}" /></th>
+							<th style="padding-right: 7px"><p:commandLink id="cl31"
+									value="#{cDiaristMB.dm31}"
+									actionListener="#{cDiaristMB.daySchedule(cDiaristMB.dm31)}"
+									disabled="#{cDiaristMB.bd31 == true ? 'true' : 'false'}"
+									oncomplete="PF('dlgAddSchedule').show();onTop('dlgAddSchedule')"
+									style="text-align: center;display:block;"
+									styleClass="#{cDiaristMB.bd31 == true ? 'color_schedule' : 'none'}" /></th>
+
+						</tr>
+
+						<tr>
+							<th></th>
+
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+							<th style="text-align: center"></th>
+
+						</tr>
+
+					</thead>
+
+				</table>
+
+			</div>
+
+			<div class="ui-fluid">
+				<div class="ui-g-12">
+					<div class="ui-g-4" align="center"></div>
+					<div class="ui-g-4" align="center">
+						<h6>mês atual</h6>
+					</div>
+					<div class="ui-g-4" align="right">
+						<h6>próximo mês</h6>
+					</div>
+				</div>
+			</div>
+
+		</p:scrollPanel>
+
+		<p:dialog id="dlgAddSchedule" widgetVar="dlgAddSchedule"
+			header="Dia escolhido da agenda" modal="true" resizable="false"
+			closable="false" width="40%" position="center, center"
+			styleClass="box-primary">
+
+			<p:outputPanel>
+
+				<p:outputPanel id="pnTpEvento" style="margin-bottom:10px">
+
+					<div class="ui-g ui-fluid">
+						<div class="col-lg-12" align="center"
+							style="font-weight: bold; display: block; text-aling: center;">
+							<h4>Agendamento</h4>
+
+							<div class="row">
+								<p:outputLabel value="#{cDiaristMB.dayMounthWeek}"
+									style="font-size:18px"></p:outputLabel>
+							</div>
+
+							<p:outputLabel value="dia:"></p:outputLabel>
+							<p:spacer width="5px;"></p:spacer>
+							<p:outputLabel value="#{cDiaristMB.intDay}"
+								style="font-size:18px"></p:outputLabel>
+							<p:spacer width="8px;"></p:spacer>
+							<p:outputLabel value="mês:"></p:outputLabel>
+							<p:spacer width="5px;"></p:spacer>
+							<p:outputLabel value="#{cDiaristMB.mounthSchedule}"
+								style="font-size:18px; font-style: italic"></p:outputLabel>
+							<p:spacer width="8px;"></p:spacer>
+							<p:outputLabel value="ano:"></p:outputLabel>
+							<p:spacer width="5px;"></p:spacer>
+							<p:outputLabel value="#{cDiaristMB.intYear}"
+								style="font-size:18px"></p:outputLabel>
+
+						</div>
+					</div>
+
+					<p />
+
+					<p:separator />
+
+				</p:outputPanel>
+
+				<div class="align-center">
+					<div class="col-lg-12">
+						<p:outputLabel value="Deseja agendar esse dia ? "
+							style="color:blue;font-size:20px" />
+					</div>
+				</div>
+
+				<p:spacer height="5px" />
+
+				<div class="align-center">
+
+					<div class="col-lg-12"
+						style="padding-right: 20px; padding-left: 20px">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-4">
+							<p:commandButton value="Não"
+								onclick="PF('dlgAddSchedule').hide()"
+								styleClass="btn btn-primary">
+							</p:commandButton>
+						</div>
+						<div class="col-lg-4">
+							<p:commandButton id="btnAddSchedule" value="Sim"
+								styleClass="btn btn-success" partialSubmit="true"
+								action="#{cDiaristMB.save}"
+								onclick="PF('btnAddSchedule').hide()"
+								oncomplete="javascript: window.scrollTo(0, 0);">
+
+							</p:commandButton>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+
+				</div>
+
+			</p:outputPanel>
+
+		</p:dialog>
+
+	</h:form>
+
+
+</ui:composition>

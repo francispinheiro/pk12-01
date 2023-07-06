@@ -1,0 +1,260 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:adm="http://efransys.com.br/adminfaces">
+
+	<h:form id="ctrDash"
+		onkeypress="if (event.keyCode == 13) { return false; }"
+		enctype="multipart/form-data">
+		<p:panel>
+			<div class="ui-fluid">
+				<p:outputLabel value="Contato Contratante" />
+				<br />
+				<p:outputLabel value="#{indexMB.idPessoa}" />
+
+				<div class="row" style="padding-left: 5px; padding-right: 5px;">
+
+					<div class="ui-g-12 ui-md-3">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+								<h3>R$ #{indexMB.valueAvailable}</h3>
+								<p>Saldo</p>
+
+							</div>
+							<div class="icon">
+								<i class="fa fa-balance-scale"></i>
+							</div>
+							<h:commandLink styleClass="small-box small-box-footer bg-green"
+								value="Mais informações" />
+						</div>
+					</div>
+
+					<div class="ui-g-12 ui-md-3">
+						<div class="small-box bg-yellow">
+
+							<div class="inner">
+								<h3>Cancelar</h3>
+								<p>Agendamento</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-calendar-minus-o"></i>
+							</div>
+							<h:commandLink styleClass="small-box small-box-footer"
+								value="Mais informações" />
+						</div>
+					</div>
+
+					<div class="ui-g-12 ui-md-6" align="center">
+						<div class="small-box bg-green">
+
+							<div class="inner">
+								<h3>Compras</h3>
+								<p>
+									<p:commandLink id="cmdBuyCredit" value="Adquirir Crédito"
+										style="text-align: center;display:block;font-style: italic;color: white;">
+										<f:ajax event="click" listener="#{indexMB.commandStartBuy}"
+											execute="@this" />
+									</p:commandLink>
+
+								</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-cart-arrow-down"></i>
+							</div>
+							<h:commandLink styleClass="small-box small-box-footer"
+								value="Mais informações" />
+						</div>
+
+					</div>
+
+
+				</div>
+
+
+
+
+				<div class="row" style="padding-left: 5px; padding-right: 5px;">
+
+					<div class="ui-g-12 ui-md-12">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+								<p>Agenda de Diaristas Contratadas</p>
+								<div class="box-body">
+									<ui:include src="/pages/contractor/week_dash.xhtml" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="ui-g-4" align="center" style="font-style: italic;">
+									<p:commandLink value="agenda dias anterior"
+										action="#{indexMB.beforeDate(indexMB.daySun)}" />
+								</div>
+								<div class="ui-g-4" align="center">
+									<p:commandLink value="semana atual"
+										action="#{indexMB.weekUsual}" />
+								</div>
+								<div class="ui-g-4" align="center" style="font-style: italic;">
+									<p:commandLink value="agenda próximos dias"
+										action="#{indexMB.afterDate(indexMB.daySatur)}" />
+								</div>
+							</div>
+
+							<div class="icon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<h:commandLink styleClass="small-box small-box-footer"
+								value="outros meses..." />
+						</div>
+					</div>
+
+				</div>
+				<!-- Final Bottons Balance and Time -->
+
+				<div class="row" style="padding-left: 5px; padding-right: 5px">
+					<div class="ui-g-12 ui-md-12">
+						<div class="inner">
+							<div class="box-body">
+								<ui:include src="/pages/contractor/search_diarist.xhtml" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<BR />
+
+				<div class="row" style="padding-left: 5px; padding-right: 5px;">
+					<div class="ui-g-12 ui-md-6">
+						<div align="center">
+							<SPAN style="color: blue"> Com dúvidas</SPAN> <img alt="\"
+								src="resources/images/whatsapp.png" width="24" height="24" /> <SPAN
+								style="color: blue"> Fale conosco</SPAN>
+							<div style="font-style: italic;" align="center">
+								<p:commandLink value="Perguntar" style="color:blue"></p:commandLink>
+							</div>
+						</div>
+					</div>
+					<div class="ui-g-12 ui-md-6">
+						<div align="center">
+							<SPAN style="color: blue"> Ver notas fiscais e compras </SPAN>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</p:panel>
+
+		<p:dialog id="dlgBuyCredit" widgetVar="dlgBuyCredit"
+			header="Compra de créditos" modal="true" resizable="false"
+			closable="false" width="40%" position="center, center"
+			styleClass="box-primary">
+
+			<p:outputPanel>
+
+				<p:outputPanel id="pnTpEvento" style="margin-bottom:10px">
+
+					<div class="ui-g ui-fluid">
+						<div class="col-lg-12" align="center"
+							style="font-weight: bold; display: block; text-aling: center;">
+							<h4>Valor à Adquirir</h4>
+
+							<div align="center" style="padding-left: 30%; padding-right: 30%">
+
+								<p:inputText id="inputValueBuy" onkeydown="mascara(this,moeda)"
+									value="#{indexMB.valueBuy}" maxlength="4" 
+									type="double"
+									style="
+										border-style: none; 
+										text-align:center;
+										display: block;
+										font-weight:bold;
+										color:green;
+										font-size:26px">
+									<f:ajax event="change" execute="@this" immediate="true"
+										listener="#{indexMB.checkValueBuy}" />
+									
+								</p:inputText>
+							</div>
+							<br />
+							<div class="inner">
+								<p:outputLabel for="console" value="Forma de Pagamento:" />
+								<p:selectOneRadio id="console" value="#{indexMB.moldOfPay}" >
+									<f:selectItems value="#{indexMB.listMoldOfPay}" id="idC" var="c" itemLabel="#{moldOfPay}" itemValue="#{moldOfPay}"/>
+									<p:ajax process="@this" partialSubmit="trye" event="valueChange" 
+										update="idC" 
+										listener="#{indexMB.checkFormOfPayment}" />									
+								</p:selectOneRadio>
+							</div>
+							<br />
+	
+							<p:barcode value="#{indexMB.qrFormOfPayment}" type="qr" id="qrCode"/>
+							
+
+							<h6>Valor máximo a ser adiquirido</h6>
+							<p:outputLabel value="#{indexMB.valueDeposit}">
+								<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+							</p:outputLabel>
+							<br />
+							<h6>Será gerado um link para PIX</h6>
+							<p:outputLabel id="msgFormPay" value="#{indexMB.msgFormOfPayment}" 
+								styleClass="#{indexMB.descFormOfPay == 'Boletos' ? 'color_msg_pay' : 'none'}"
+								/>
+							
+								
+
+							
+						</div>
+
+					</div>
+
+					<p />
+
+					<p:separator />
+
+				</p:outputPanel>
+
+				<div class="align-center">
+					<div class="col-lg-12">
+						<p:outputLabel value="Deseja adquirir esses créditos ? "
+							style="color:blue;font-size:20px" />
+					</div>
+				</div>
+
+				<p:spacer height="5px" />
+
+				<div class="align-center">
+
+					<div class="col-lg-12"
+						style="padding-right: 20px; padding-left: 20px">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-4">
+							<p:commandButton value="Não" onclick="PF('dlgBuyCredit').hide()"
+								styleClass="btn btn-primary"
+								actionListener="#{indexMB.commandExitBuy}" partialSubmit="true">
+
+							</p:commandButton>
+						</div>
+						<div class="col-lg-4">
+							<p:commandButton id="btnAddBuyCredit" value="Sim" 
+								styleClass="btn btn-success" partialSubmit="true"
+								onclick="PF('btnAddBuyCredit').hide()"
+								oncomplete="javascript: window.scrollTo(0, 0);">
+
+							</p:commandButton>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+
+				</div>
+
+			</p:outputPanel>
+
+		</p:dialog>
+
+	</h:form>
+
+</ui:composition>

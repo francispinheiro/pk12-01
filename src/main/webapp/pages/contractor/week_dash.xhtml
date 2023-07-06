@@ -1,0 +1,141 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:adm="http://efransys.com.br/adminfaces">
+
+	<h:form id="ctrDashCalendar"
+		onkeypress="if (event.keyCode == 13) { return false; }"
+		enctype="multipart/form-data">
+
+		<div class="ui-g-12 ui-md-12" align="right">
+
+			<div class="ui-g-12" align="center">
+				<div class="ui-g-6" align="left">
+					<ui:fragment rendered="#{indexMB.yearBefore > 0}">
+						<p:outputLabel style="padding-right: 50px;font-size:24px"
+							value="#{indexMB.yearBefore}"></p:outputLabel>
+					</ui:fragment>
+				</div>
+				<div class="ui-g-6" align="right">
+					<p:outputLabel style="padding-right: 50px;font-size:24px"
+						value="#{indexMB.yearSearch}"></p:outputLabel>
+				</div>
+			</div>
+
+			<div class="ui-g-12" align="center">
+				<ui:fragment rendered="#{indexMB.squareFB == true}">
+					<div class="#{indexMB.squareB}" id="sqB">
+						<p:outputLabel style="font-size:16px;color:orange"
+							value="#{indexMB.descMounthBefore}"></p:outputLabel>
+					</div>
+				</ui:fragment>
+
+				<ui:fragment rendered="#{indexMB.squareFA == true}">
+					<div class="#{indexMB.squareA}" id="sqA">
+						<p:outputLabel style="font-size:16px;color:green"
+							value="#{indexMB.descMounthAfter}"></p:outputLabel>
+					</div>
+				</ui:fragment>
+			</div>
+
+		</div>
+
+		<div class="ui-g-12 ui-md-12" align="center" style="padding-bottom: 0">
+			<div class="ui-g-2"
+				style="background: #5F9EA0; border-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.sun}" />
+				</div>
+			</div>
+			<div class="ui-g-1"
+				style="background: #778899; border-block-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.mon}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #778899; border-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.tues}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #778899; border-block-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.wednes}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #778899; border-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.thurs}" />
+				</div>
+			</div>
+			<div class="ui-g-1"
+				style="background: #778899; border-block-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.fri}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #5F9EA0; border-style: solid; border-color: #EDE0E0">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.satur}" />
+				</div>
+			</div>
+
+		</div>
+
+		<div class="ui-g-12 ui-md-12" align="center" style="padding-top: 0">
+			<div class="ui-g-2"
+				style="background: #20B2AA; border-style: solid; border-color: #EDE0E0; border-top-style: none">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.daySun}" />
+				</div>
+			</div>
+			<div class="ui-g-1"
+				style="background: #4682B4; border-block-style: solid; border-color: #EDE0E0; border-top-style: none">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.dayMon}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #4682B4; border-style: solid; border-color: #EDE0E0; border-top-style: none">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.dayTues}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #4682B4; border-block-style: solid; border-color: #EDE0E0; border-top-style: none">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.dayWednes}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #4682B4; border-style: solid; border-color: #EDE0E0; border-top-style: none">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.dayThurs}" />
+				</div>
+			</div>
+			<div class="ui-g-1"
+				style="background: #4682B4; border-block-style: solid; border-color: #EDE0E0; border-top-style: none;">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.dayFri}" />
+				</div>
+			</div>
+			<div class="ui-g-2"
+				style="background: #20B2AA; border-style: solid; border-color: #EDE0E0; border-top-style: none;">
+				<div class="row">
+					<h:outputLabel value="#{indexMB.daySatur}" />
+				</div>
+			</div>
+
+		</div>
+
+	</h:form>
+
+
+</ui:composition>

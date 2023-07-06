@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+	<h:outputStylesheet library="css" name="prism.css" />
+	
+	<title>Diária</title>
+
+        <style>
+        
+            .blink {
+                animation: blink-animation 1s steps(3, start) infinite;
+                -webkit-animation: blink-animation 1s steps(3, start) infinite;
+                color: #cf0404;
+                font-weight: bold;
+            }
+        
+            @keyframes blink-animation {
+                to {
+                    visibility: hidden;
+                }
+            }
+            @-webkit-keyframes blink-animation {
+                to {
+                    visibility: hidden;
+                }
+
+            }
+
+            .quadrat {
+                width: 50px;
+                height: 50px;
+                -webkit-animation: NAME-YOUR-ANIMATION 1s infinite; /* Safari 4+ */
+                -moz-animation:    NAME-YOUR-ANIMATION 1s infinite; /* Fx 5+ */
+                -o-animation:      NAME-YOUR-ANIMATION 1s infinite; /* Opera 12+ */
+                animation:         NAME-YOUR-ANIMATION 1s infinite; /* IE 10+, Fx 29+ */
+            }
+
+            @-webkit-keyframes NAME-YOUR-ANIMATION {
+                0%, 49% {
+                    background-color: rgb(117,209,63);
+                    border: 3px solid #e50000;
+                }
+                50%, 100% {
+                    background-color: #e50000;
+                    border: 3px solid rgb(117,209,63);
+                }
+            }
+            
+        </style>
+        
+	<!-- Estilos customizados para esse template -->
+	<!-- <link href="resources/css/signin.css" rel="stylesheet" /> -->
+	<link href="resources/css/erp.css" rel="stylesheet" />
+
+</h:head>
+
+<h:body styleClass="hold-transition login-page">
+
+	<p:growl autoUpdate="true" life="4000" />
+
+	<div class="ui-g ui-fluid">
+
+		<div class="login-box">
+				
+			<div class="login-logo">
+				
+				<div class="login-box-msg" 
+						style="font-style: italic;font-weight: bold;" align="center">
+							<SPAN style="color: white">Sistema Teste</SPAN>
+				</div>
+			</div>
+
+			<div class="login-box-body">
+
+				<h:form id="formLogin">
+
+					<div class="login-box-msg" 
+						style="font-style: italic;font-weight: bold " align="center">
+							<SPAN style="color: blue;">Teste da GerenciaNET</SPAN>
+					</div>
+
+					<div class="form-group has-feedback ">
+						
+						
+							<p:commandButton styleClass="btn btn-info btn-block"
+							action="#{logonMB.doLogon}" value="Gerar pix"
+							
+							style="font-weight: bold;border-radius: 7px"
+								 process="@form" update="@form" />
+						
+						
+					</div>
+
+					<br/>
+				</h:form>
+
+
+				
+			</div>
+			<br/>
+			<h:form>
+			<div align="left">
+				
+				<br/>
+				<p:separator />
+				<br/>
+				<div style="font-style: italic;" align="left">
+					<p:commandLink value="voltar" 
+						style="color:blue"></p:commandLink>							
+				</div>				
+				<br/>				
+			</div>
+			<div align="center">
+				<SPAN style="color: blue"> Com dúvidas</SPAN>
+			
+				<img alt="\" src="resources/images/whatsapp.png" width="24"
+						height="24" />
+				<SPAN style="color: blue"> Fale conosco</SPAN>
+				<div style="font-style: italic;" align="center">
+					<p:commandLink value="Perguntar" 
+						style="color:blue"></p:commandLink>							
+				</div>	
+			</div>
+			</h:form>
+		</div>
+	</div>
+
+
+</h:body>
+
+</f:view>
+</html>

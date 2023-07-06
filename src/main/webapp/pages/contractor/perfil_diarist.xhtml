@@ -1,0 +1,166 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:adm="http://efransys.com.br/adminfaces"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="head-end">
+		<style type="text/css">
+.ui-datatable table tbody tr td {
+	padding: 3px; ! important;
+	padding-left: 5px;
+}
+
+.ui-grid-row .ui-grid-col-2, .ui-grid-row .ui-grid-col-10 {
+	padding: 0;
+	margin-left: 10px;
+}
+
+.ui-orderlist .ui-orderlist-list {
+	height: 30px;
+}
+
+.ui-orderlist .ui-grid-row .ui-grid-col-2, .ui-orderlist .ui-grid-row .ui-grid-col-10
+	{
+	padding: 0;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.old {
+	background-color: #fca752 !important;
+	background-image: none !important;
+	color: #000000 !important;
+}
+</style>
+	</ui:define>
+
+	<ui:define name="title">
+     	Perfil Diarista
+    </ui:define>
+
+	<ui:define name="description">
+        o melhor para você          
+    </ui:define>
+
+	<ui:define name="body">
+
+		<h:form id="formPerfilDiarist"
+			onkeypress="if (event.keyCode == 13) { return false; }"
+			enctype="multipart/form-data">
+
+			<div class="ui-fluid">
+
+				<p:panel>
+
+					<div class="ui-fluid">
+
+						<div class="row" style="padding-left: 5px; padding-right: 5px;">
+							<div class="ui-g-12">
+
+								<div class="ui-g-6" align="left">
+
+									<h:graphicImage styleClass=""
+										value="/images/dynamic/?file=#{cDiaristMB.photoDiarist()}"
+										style="position: relative; width: 100px; 												   
+												   height: 100px; 
+												   overflow: hidden; border-radius: 50%;
+												   margin-bottom: 2px;
+												   border: 2px solid #75B1B9;
+												   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),inset 0px 3px 8px rgba(0, 0, 0, 0.3);
+  												   -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3),inset 0px 3px 8px rgba(0,0,0,0.3);
+  													box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),inset 0px 3px 8px rgba(0, 0, 0, 0.3);
+												   " />
+
+									<h4>#{cDiaristMB.pesDiaria.nome}</h4>
+
+								</div>
+								<div class="ui-g-6" align="right">
+									<h5>Valor da diária</h5>
+									<h2>R$ #{cDiaristMB.ctrPrd.valor1Unitario}</h2>
+									<p:rating value="#{cDiaristMB.ctrPrd.rate}" disabled="true" />
+									<h6>ver históricos</h6>
+								</div>
+
+							</div>
+						</div>
+						<div class="row" style="padding-left: 15px; padding-right: 15px;">
+							<div class="ui-g-12" align="center">
+								<h5 style="font-style: italic;">#{cDiaristMB.ctr.observacao}</h5>
+							</div>
+						</div>
+
+						<div class="inner">
+							<div class="box-body">
+								<ui:include
+									src="/pages/contractor/mounth_diarist_customer.xhtml" />
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="ui-fluid">
+
+						<div class="row" style="padding-left: 5px; padding-right: 5px;">
+							<div class="ui-g-12" align="center">
+								<h4>Gostou e mim? Pode escolher o melhor dia aqui e logo
+									nos veremos !</h4>
+								<h6>Meu Saldo</h6>
+								<h4>R$ 600,00</h4>
+							</div>
+						</div>
+						<br />
+						<div class="row" style="padding-left: 5px; padding-right: 5px;">
+							<div class="ui-g-12" align="center">
+								<h6>Ainda não contratei esse prestador</h6>
+								<h6>Já contratrei esse prestador</h6>
+								<h4>4 estrelas</h4>
+							</div>
+						</div>
+
+					</div>
+
+					<f:facet name="footer">
+						<div class="align-right" style="padding: 5px;">
+							<div class="ui-g-12">
+								<div class="ui-g-4">
+									<p:commandButton value="Verificar meus agendamentos"
+										update="@form" styleClass="btn-success" />
+								</div>
+								<div class="ui-g-4"></div>
+								<div class="ui-g-4">
+									<p:commandButton value="Voltar" process="@this"
+										action="#{cDiaristMB.returnPgIndex}">
+									</p:commandButton>
+								</div>
+							</div>
+
+
+
+
+						</div>
+					</f:facet>
+				</p:panel>
+
+
+
+
+				<BR />
+
+
+			</div>
+
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

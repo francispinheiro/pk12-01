@@ -1,0 +1,84 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:adm="http://efransys.com.br/adminfaces">
+
+	<h:form id="formSearchDiarist"
+		onkeypress="if (event.keyCode == 13) { return false; }"
+		enctype="multipart/form-data">
+
+		<div class="ui-g-12 ui-md-12" align="left">
+			<p:panel header="Filtros de Pesquisa" styleClass="box-primary"
+				widgetVar="panel" toggleable="true">
+				<div class="row">
+					<div class="col-lg-8">
+						<p:outputLabel for="diaName" value="Nome da Diarista" />
+						<p:inputText id="diaName" maxlength="80" />
+					</div>
+				</div>
+				<br />
+				<div class="row" align="center">
+					<div class="col-lg-2" style="padding-right: 15px;">
+						<p:commandButton id="btnPesquisa" value="Pesquisar"
+							actionListener="#{indexMB.findDiarist}" icon="fa fa-search"
+							update="@form" styleClass="btn-primary" process="@this"
+							partialSubmit="true">
+
+						</p:commandButton>
+					</div>
+				</div>
+			</p:panel>
+
+		</div>
+
+		<p:dataTable widgetVar="diaristTable" id="tableList" var="c"
+			lazy="true" value="#{indexMB.listDiaristSearch}" rows="30"
+			rowKey="#{c.id}" styleClass="box-primary" paginator="true"
+			paginatorPosition="bottom"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {JumpToPageDropdown}"
+			currentPageReportTemplate="[ Mostrando de {startRecord} até {endRecord} de {totalRecords} registro(s)- Página: {currentPage}/{totalPages} ]"
+			rowsPerPageTemplate="5,10,15,20,30,40,50,100">
+
+			<f:facet name="header">
+                        &#160;
+            </f:facet>
+
+			<p:column headerText="id" style="width:10%" visible="true">
+				<h:outputText value="#{c.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" style="width:40%" visible="true">
+				<h:outputText value="#{c.diarista}" />
+			</p:column>
+
+			<p:column headerText="Rate" style="width:5%" visible="true">
+				<h:outputText value="#{c.rate}"
+					style="text-align: center;display:block;" />
+			</p:column>
+
+			<p:column headerText="Valor Diária" style="width:15%;" visible="true">
+				<h:outputText value="#{c.valor}"
+					style="text-align: center;display:block;" />
+			</p:column>
+
+			<p:column headerText="Conhecer" style="width:10%;text-align: center">
+				<p:commandLink value="perfil"
+					action="#{cDiaristMB.openPgCDiarist(c.id, indexMB.idPessoa, c.idCtr)}"
+					process="@this">
+
+				</p:commandLink>
+			</p:column>
+
+			<p:column headerText="Histórico" style="width:10%">
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+
+
+
+</ui:composition>
